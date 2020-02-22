@@ -85,6 +85,6 @@ public class Vehicle {
 	@Override
 	public String toString() {
 		return "Vehicle [id=" + id + ", modelYear=" + modelYear + ", brand=" + brand + ", modelName=" + modelName
-				+ ", horsePower=" + horsePower + ", avgMpg=" + avgMpg + ", msrp=" + msrp + "]";
+				+ ", horsePower=" + horsePower + ", avgMpg=" + avgMpg + ", msrp=$" + msrp + "]";
 	};
 }
