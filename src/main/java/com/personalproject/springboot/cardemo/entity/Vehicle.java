@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="employee")
+@Table(name="vehicle")
 public class Vehicle {
 	
 	// define fields
