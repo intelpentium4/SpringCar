@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xml:th="http://www.thymeleaf.org>"
+<html lang="en" xmlns:th="http://www.thymeleaf.org>">
 
 <head>
 	<!-- Required meta tags -->
@@ -15,8 +15,14 @@
 <body>
 <div class="container">
 
-	<h3>Vehicle Directory</h3>
+	<h3 class="mx-auto" style="width: 200px;">Vehicle Directory</h3>
 	<hr>
+	
+	<!-- Add a button -->
+	<a th:href="@{/vehicles/showFormForAdd}"
+		class="btn btn-primary btn-sm mb-3">
+		Add Vehicle
+	</a>
 	
 	<table class="table table-boardered table-striped table-hover">
 		<thead class="thead-dark">

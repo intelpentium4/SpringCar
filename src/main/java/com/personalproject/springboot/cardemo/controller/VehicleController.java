@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.personalproject.springboot.cardemo.entity.Vehicle;
@@ -32,6 +34,25 @@ public class VehicleController {
 		// add to the spring model
 		theModel.addAttribute("vehicles", theVehicles );
 		
-		return "list-vehicles";
+		return "vehicles/list-vehicles";
 	}
+	
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel) {
+		// create model attribute to bind form data
+		Vehicle theVehicle = new Vehicle();
+		theModel.addAttribute("vehicle", theVehicle);
+		return "vehicles/vehicle-form";
+	}
+	
+	@PostMapping("/save")
+	public String saveVehicle(@ModelAttribute("vehicle") Vehicle theVehicle) {
+		
+		// save the vehicle
+		vehicleService.save(theVehicle);
+		
+		// use a redirect to prevent duplicate submissions
+		return "redirect:/vehicles/list";
+	}
+	
 }

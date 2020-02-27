@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	
+	<title>Add Vehicle form</title>
+</head>
+	
+
+<body>
+	<div class="container">
+		<h3>Vehicle Directory</h3>
+		<hr>
+		<p class="h4 mb-4">Save Vehicle</p>
+		<form action="#" th:action="@{/vehicles/save}"
+						th:object="${vehicle}" method="POST">
+			<!-- Add hidden form field to handle update -->
+<!-- 			<input type="hidden" th:field="*{id}" /> -->
+			<div>Model Year</div>
+			<input type="text" th:field="*{modelYear}"
+				class="form-control mb-4 col-4">
+			
+			<div>Brand</div>
+			<input type="text" th:field="*{brand}"
+				class="form-control mb-4 col-4" placeholder="Brand goes here">
+				
+			<div>Model Name</div>
+			<input type="text" th:field="*{modelName}"
+				class="form-control mb-4 col-4" placeholder="Model goes here">
+				
+			<div>Horsepower</div>
+			<input type="number" th:field="*{horsePower}"
+				class="form-control mb-4 col-4">
+			
+			<div>Average Mpg</div>
+			<input type="number" th:field="*{avgMpg}"
+				class="form-control mb-4 col-4">
+				
+			<div>MSRP</div>
+			<input type="number" th:field="*{msrp}"
+				class="form-control mb-4 col-4">
+			<button type="submit" class="btn btn-info col-2">Save</button>
+		</form>
+		<hr>
+		<a th:href="@{/vehicles/list}">Back to Vehicle List</a>
+	</div>
+</body>
+
+</html>
