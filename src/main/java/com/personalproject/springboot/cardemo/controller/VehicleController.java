@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.personalproject.springboot.cardemo.entity.Vehicle;
 import com.personalproject.springboot.cardemo.service.VehicleService;
@@ -42,6 +43,19 @@ public class VehicleController {
 		// create model attribute to bind form data
 		Vehicle theVehicle = new Vehicle();
 		theModel.addAttribute("vehicle", theVehicle);
+		return "vehicles/vehicle-form";
+	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("vehicleId") int theId,
+									Model theModel) {
+		// get the vehicle from the service
+		Vehicle theVehicle = vehicleService.findById(theId);
+		
+		// set the vehicle as a model attribute to pre-populate the form
+		theModel.addAttribute("vehicle", theVehicle);
+		
+		// send over to our form
 		return "vehicles/vehicle-form";
 	}
 	
