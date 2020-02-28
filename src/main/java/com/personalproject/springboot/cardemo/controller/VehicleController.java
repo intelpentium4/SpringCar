@@ -69,4 +69,13 @@ public class VehicleController {
 		return "redirect:/vehicles/list";
 	}
 	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("vehicleId") int theId) {
+		
+		// delete the vehicle
+		vehicleService.deleteById(theId);
+		// redirect to vehicles/list
+		return "redirect:/vehicles/list";
+	}
+	
 }
